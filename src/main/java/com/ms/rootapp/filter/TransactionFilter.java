@@ -29,7 +29,9 @@ public class TransactionFilter implements Filter {
         if (requestURL.endsWith("health/")){
         }else{
             if (!requestURL.endsWith(extension+"/")) {
-                res.sendRedirect(requestURL + "/");
+//                res.sendRedirect(requestURL + "/");
+                res.setHeader("Location", requestURL + "/");
+                res.setStatus(302);
             }
         }
         logger.info(
