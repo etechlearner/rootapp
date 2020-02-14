@@ -15,6 +15,7 @@ import java.io.IOException;
 
 @SpringBootApplication
 @RestController
+@RequestMapping(value = "/")
 public class RootappApplication {
 
 	public static void main(String[] args) {
