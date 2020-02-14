@@ -25,7 +25,7 @@ public class RootappApplication {
 	@Value("${domain.extension}")
 	private String extension;
 
-	@RequestMapping(value={"/","/index"}, method = RequestMethod.GET)
+	@RequestMapping(value={"/","/index","/dash"}, method = RequestMethod.GET)
 	public String getAppTitle(HttpServletRequest request, HttpServletResponse resp) throws IOException {
 		String requestURL = String.valueOf(request.getRequestURL());
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Component
@@ -31,20 +32,41 @@ public class TransactionFilter implements Filter {
                 "Starting a transaction for req : {}"+
                 req.getRequestURI());
 
-        filterChain.doFilter(req, res);
         logger.info(
                 "Committing a transaction for req : {}"+
                 req.getRequestURI());
 
-        if (requestURL.endsWith("health/")){
-        }else{
-            if (!requestURL.endsWith(extension+"/")) {
-                res.sendRedirect(requestURL + "/");
 
-//                res.setHeader("Location", requestURL + "/");
-//                res.setStatus(302);
-            }
+        if (requestURL.endsWith(".io/") || requestURL.endsWith("health/") || requestURL.endsWith("health")){
+
+        }else{
+            res.sendRedirect(requestURL="/");
+            return;
         }
+//        if (requestURL.endsWith("health/")){
+//        }else{
+//            if (!requestURL.endsWith(extension+"/")) {
+//
+////                HttpServletRequest reque = (HttpServletRequest) req;
+////                HttpSession mySession = requestURL.getSession();
+////                //get the url to submit the save params
+////                String saveUrl = (String) requestURL.getParameter("saveUrl");
+////                System.out.println(saveUrl);
+////                RequestDispatcher x = reque.getRequestDispatcher(requestURL );
+//                //run the save
+////                x.forward(reque, res);
+////                res.sendRedirect(requestURL + "/");
+////                HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
+////                httpResponse.sendRedirect(req.getContextPath() + requestURL + "/");
+//
+//                res.sendRedirect(requestURL);
+//                return;
+////                res.setHeader("Location", requestURL + "/");
+////                res.setStatus(302);
+//            }
+//        }
+        filterChain.doFilter(req, res);
+
     }
 
     // other methods
