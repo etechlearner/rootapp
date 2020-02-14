@@ -26,14 +26,7 @@ public class TransactionFilter implements Filter {
 
         String requestURL = String.valueOf(req.getRequestURL());
 
-        if (requestURL.endsWith("health/")){
-        }else{
-            if (!requestURL.endsWith(extension+"/")) {
-//                res.sendRedirect(requestURL + "/");
-                res.setHeader("Location", requestURL + "/");
-                res.setStatus(302);
-            }
-        }
+
         logger.info(
                 "Starting a transaction for req : {}"+
                 req.getRequestURI());
@@ -42,6 +35,16 @@ public class TransactionFilter implements Filter {
         logger.info(
                 "Committing a transaction for req : {}"+
                 req.getRequestURI());
+
+        if (requestURL.endsWith("health/")){
+        }else{
+            if (!requestURL.endsWith(extension+"/")) {
+                res.sendRedirect(requestURL + "/");
+
+//                res.setHeader("Location", requestURL + "/");
+//                res.setStatus(302);
+            }
+        }
     }
 
     // other methods
