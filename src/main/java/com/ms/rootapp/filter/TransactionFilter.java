@@ -26,7 +26,7 @@ public class TransactionFilter implements Filter {
 
         String requestURL = String.valueOf(req.getRequestURL());
 
-        if (!requestURL.endsWith(extension+"/")){
+        if (!requestURL.endsWith(extension+"/") && !requestURL.endsWith("health/")){
             res.sendRedirect(requestURL+"/");
         }
         logger.info(
