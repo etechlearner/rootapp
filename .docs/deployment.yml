@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: rootapp
-          image: gymrabbit/accountservice:KVERSION
+          image: gymrabbit/rootapp:KVERSION
           ports:
             - containerPort: 8080
 ---
