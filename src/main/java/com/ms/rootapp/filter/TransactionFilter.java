@@ -37,7 +37,7 @@ public class TransactionFilter implements Filter {
                 req.getRequestURI());
 
 
-        if (requestURL.endsWith(".io/") || requestURL.endsWith("health/") || requestURL.endsWith("health")){
+        if (requestURL.endsWith(extension) || requestURL.endsWith("health/") || requestURL.endsWith("health")){
 
         }else{
             res.sendRedirect(requestURL+"/");
