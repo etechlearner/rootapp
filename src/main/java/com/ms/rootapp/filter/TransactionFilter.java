@@ -40,7 +40,7 @@ public class TransactionFilter implements Filter {
         if (requestURL.endsWith(".io/") || requestURL.endsWith("health/") || requestURL.endsWith("health")){
 
         }else{
-            res.sendRedirect(requestURL="/");
+            res.sendRedirect(requestURL+"/");
             return;
         }
 //        if (requestURL.endsWith("health/")){
