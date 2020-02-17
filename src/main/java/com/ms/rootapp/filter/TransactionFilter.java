@@ -43,28 +43,7 @@ public class TransactionFilter implements Filter {
             res.sendRedirect(requestURL+"/");
             return;
         }
-//        if (requestURL.endsWith("health/")){
-//        }else{
-//            if (!requestURL.endsWith(extension+"/")) {
-//
-////                HttpServletRequest reque = (HttpServletRequest) req;
-////                HttpSession mySession = requestURL.getSession();
-////                //get the url to submit the save params
-////                String saveUrl = (String) requestURL.getParameter("saveUrl");
-////                System.out.println(saveUrl);
-////                RequestDispatcher x = reque.getRequestDispatcher(requestURL );
-//                //run the save
-////                x.forward(reque, res);
-////                res.sendRedirect(requestURL + "/");
-////                HttpServletResponse httpResponse = (HttpServletResponse) servletResponse;
-////                httpResponse.sendRedirect(req.getContextPath() + requestURL + "/");
-//
-//                res.sendRedirect(requestURL);
-//                return;
-////                res.setHeader("Location", requestURL + "/");
-////                res.setStatus(302);
-//            }
-//        }
+
         filterChain.doFilter(req, res);
 
     }
